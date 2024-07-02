@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Assertion</string>
+    <string name="second_activity_name">AssertionList</string>
+</resources>
