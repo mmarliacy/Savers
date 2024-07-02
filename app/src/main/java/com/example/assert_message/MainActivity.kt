@@ -12,9 +12,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.assert_message.feature_assertion.presentation.single_display.components.AssertionBackground
+import com.example.assert_message.feature_assertion.data.data_source.DataProvider
 import com.example.assert_message.feature_assertion.domain.model.Assertion
-import com.example.assert_message.feature_assertion.domain.model.Assertion.Companion.messageList
+import com.example.assert_message.feature_assertion.presentation.single_display.components.AssertionBackground
 import com.example.assert_message.ui.theme.AssertionTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val assertion = Assertion("My first assertion")
+        val assertion = Assertion(0,"My first assertion")
 
         setContent {
             val colorList by remember {
@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
                     AssertionBackground(
                         modifier = Modifier,
                         applicationContext,
-                        messageList
+                        DataProvider.assertionList
                     )
                 }
             }

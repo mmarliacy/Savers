@@ -42,20 +42,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.assert_message.feature_assertion.data.data_source.DataProvider
 import com.example.assert_message.feature_assertion.domain.model.Assertion
 import com.example.assert_message.ui.theme.AssertionTheme
 import kotlinx.coroutines.launch
 
 class SecondActivity : ComponentActivity() {
 
-
     @SuppressLint("MutableCollectionMutableState")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             AssertionTheme {
-                val messageList by remember {
-                    mutableStateOf(Assertion.messageList)
+                val assertionsList = remember {
+                    DataProvider.assertionList
                 }
 
                 Surface(
@@ -72,11 +72,13 @@ class SecondActivity : ComponentActivity() {
                                 .weight(1f)
                                 .background(Color.White)
                         ) {
-                            items(messageList) { message ->
-                                MessageCard(message = message.message, modifier = Modifier)
-                            }
+                            items(
+                                items = assertionsList,
+                                itemContent = {
+                                MessageCard(it, modifier = Modifier)
+                                    })
                         }
-                        AddNewAssertion(modifier = Modifier.weight(0.1f),messageList)
+                        AddNewAssertion(modifier = Modifier.weight(0.1f),assertionsList)
                     }
                 }
             }
@@ -84,7 +86,7 @@ class SecondActivity : ComponentActivity() {
     }
 
     @Composable
-    fun MessageCard(message: String, modifier: Modifier) {
+    fun MessageCard(assertion: Assertion, modifier: Modifier) {
         Surface(
             modifier
                 .fillMaxWidth()
@@ -96,7 +98,7 @@ class SecondActivity : ComponentActivity() {
         ) {
             Row(modifier = modifier.padding(vertical = 10.dp, horizontal = 10.dp)) {
                 Text(
-                    text = message,
+                    text = assertion.message,
                     fontSize = 18.sp,
                     fontStyle = FontStyle.Normal,
                     fontWeight = FontWeight.Light,
@@ -177,7 +179,7 @@ class SecondActivity : ComponentActivity() {
                         Button(onClick = {
                             scope.launch {
                                 sheetState.hide()
-                                val newAssertion = Assertion(inputText)
+                                val newAssertion = Assertion(10,inputText)
                                 messageList.add(newAssertion)
                             }.invokeOnCompletion {
                                 if (!sheetState.isVisible) {
