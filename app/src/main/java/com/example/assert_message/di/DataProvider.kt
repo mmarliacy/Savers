@@ -1,10 +1,10 @@
-package com.example.assert_message.feature_assertion.data.data_source
+package com.example.assert_message.di
 
 import com.example.assert_message.feature_assertion.domain.model.Assertion
 
 object DataProvider {
 
-    var assertionList = arrayListOf(
+    var assertionList = listOf(
         Assertion(1,"Je deviens la meilleure développeuse, et aimer apprendre continuellement"),
         Assertion(
             2,"J'aurais mon premier emploi de développeuse, et je ferai tout ce qu'il faut pour l'obstenir"
