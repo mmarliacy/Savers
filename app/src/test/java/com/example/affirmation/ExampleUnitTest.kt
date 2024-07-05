@@ -1,4 +1,4 @@
-package com.example.assert_message
+package com.example.affirmation
 
 import org.junit.Test
 

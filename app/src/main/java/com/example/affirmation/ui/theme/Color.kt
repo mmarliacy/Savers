@@ -1,4 +1,4 @@
-package com.example.assert_message.ui.theme
+package com.example.affirmation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

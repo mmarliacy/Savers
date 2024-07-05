@@ -1,4 +1,4 @@
-package com.example.assert_message
+package com.example.affirmation
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

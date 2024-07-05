@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Assertion"
 include(":app")
- 
+include(":lib")
