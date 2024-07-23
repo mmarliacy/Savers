@@ -64,13 +64,13 @@ val Typography = Typography(
     titleMedium = TextStyle(
         fontFamily = fontLobsterFamily,
         fontWeight = FontWeight.W700,
-        fontSize = 50.sp,
+        fontSize = 40.sp,
         lineHeight = 25.sp,
         letterSpacing = 0.5.sp
     ),
     titleSmall = TextStyle(
         fontFamily = lato,
-        fontWeight = FontWeight.Thin,
+        fontWeight = FontWeight.Normal,
         fontSize = 26.sp,
         lineHeight = 18.sp,
         letterSpacing = 0.5.sp

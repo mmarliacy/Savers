@@ -20,7 +20,7 @@ fun SetupNavGraph(
         composable(
             route = AffirmationRoute.AffirmationBox.route
         ){
-            BoxScreen(navHostController = navHostController)
+            BoxScreen()
         }
         composable(
             route = AffirmationRoute.AffirmationsList.route
